@@ -1,13 +1,13 @@
 import os.path
 import math
-path=input("Enter the Directory Name:")
+path=input("Enter the Directory Path:")
 file=os.listdir(path)
 print(file)
 os.chdir(path)
 def PgChecker(file1,file2):
     def Characters(s):
         s=s.lower()
-        c="abcdefghijklmnopqrstuvxxyz_0123456789 "
+        c="_0123456789abcdefghijklmnopqrstuvxxyz "
         for i in s:
             if i not in c:
                 s=s.replace(i," ")
@@ -44,9 +44,9 @@ def PgChecker(file1,file2):
     denominator=(DotproductofDen(d1))*(DotproductofDen(d2))
     return round((numerator/denominator)*100)
 list1=[]
-for i in range (len(file)):
-    for j in range (len(file)):
-        if i==j:
+for j in range (len(file)):
+    for i in range (len(file)):
+        if j==i:
             list1.append("Nil")
         else:
             file1=open(file[i],"r")
